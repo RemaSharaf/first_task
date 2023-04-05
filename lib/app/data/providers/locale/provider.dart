@@ -5,8 +5,12 @@ import 'package:get/get.dart';
 
 class LocalProvider {
   final _storage = Get.find<StorageService>();
-  String readLang() {
-    return jsonDecode(_storage.read("lang").toString());
+  String? readLang() {
+    var langJson = _storage.read("lang");
+    if (langJson == null) {
+      return null;
+    }
+    return jsonDecode(langJson);
   }
 
   writeLang(String code) {

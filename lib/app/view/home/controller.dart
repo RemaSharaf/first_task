@@ -51,7 +51,7 @@ class HomeController extends GetxController {
   void onInit() {
     ordersRepository.readLang() == null
         ? ordersRepository.writeLang(code.value)
-        : code.value = ordersRepository.readLang();
+        : code.value = ordersRepository.readLang()!;
     super.onInit();
   }
 
