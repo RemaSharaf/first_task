@@ -43,7 +43,7 @@ class MyApp extends StatelessWidget {
           fontFamily: GoogleFonts.cairo().fontFamily,
           scaffoldBackgroundColor: Colors.white),
       // builder: DevicePreview.appBuilder,
-      home: Start(),
+      home: Counter(),
     );
   }
 }
@@ -57,8 +57,17 @@ class Counter extends StatelessWidget {
       body: SafeArea(
           child: Container(
         child: CustomPaint(
-          child: Container(),
-          painter: CounterPainter(),
+          painter: CounterPainter(color: const Color(0xffD168CD), height: 9),
+          child: Container(
+            width: 261.w,
+            height: 48.h,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              border: Border.all(
+                color: const Color(0xff5A55C9),
+              ),
+            ),
+          ),
         ),
       )),
     );
@@ -66,22 +75,20 @@ class Counter extends StatelessWidget {
 }
 
 class CounterPainter extends CustomPainter {
+  final int height;
+  final Color color;
+  CounterPainter({required this.height, required this.color});
   @override
   void paint(Canvas canvas, Size size) {
-    final paint = Paint()..strokeWidth = 8;
-    canvas.drawLine(Offset(size.width * 1 / 6, size.height * 1 / 7),
-        Offset(size.width * 1 / 5, size.height * 1 / 7), paint);
-    // for (int i = 0; i < 27; i++) {}
+    final paint = Paint()
+      ..strokeWidth = 4
+      ..color = color;
+    canvas.drawLine(Offset(size.width * 1 / 5, size.height * 1 / height),
+        Offset(size.width * 1 / 5, size.height * 1 / 12), paint);
   }
 
   @override
   bool shouldRepaint(covariant CustomPainter oldDelegate) {
     return true;
   }
-}
-
-class DataItem {
-  final Color color;
-  final int value;
-  DataItem({required this.color, required this.value});
 }
