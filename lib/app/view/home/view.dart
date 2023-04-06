@@ -11,6 +11,16 @@ class Start extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
+    return Main(widget: Home());
+  }
+}
+
+class Main extends StatelessWidget {
+  Main({super.key, required this.widget});
+  Widget widget;
+  final controller = Get.find<HomeController>();
+  @override
+  Widget build(BuildContext context) {
     int index = 0;
     return Scaffold(
       backgroundColor: Colors.white,
@@ -22,13 +32,14 @@ class Start extends GetView<HomeController> {
                   children: [
                     Column(
                       children: [
-                        Expanded(child: Home()),
+                        Expanded(child: widget),
                         Container(
                           height: 100,
                           color: Colors.transparent,
                         )
                       ],
                     ),
+                    Text("data")
                   ],
                 )),
             bottomNavigation(controller, index)

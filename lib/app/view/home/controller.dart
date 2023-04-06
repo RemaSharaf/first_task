@@ -43,6 +43,9 @@ class HomeController extends GetxController {
         messageContent: "Hey Kriss, I am doing fine dude. wbu?",
         messageType: "sender"),
     ChatMessage(messageContent: "ehhhh, doing OK.", messageType: "receiver"),
+    ChatMessage(messageContent: "ehhhh, doing OK.", messageType: "receiver"),
+    ChatMessage(messageContent: "ehhhh, doing OK.", messageType: "receiver"),
+    ChatMessage(messageContent: "ehhhh, doing OK.", messageType: "receiver"),
     ChatMessage(
         messageContent: "Is there any thing wrong?", messageType: "sender"),
   ];

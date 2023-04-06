@@ -4,6 +4,7 @@ import 'package:first_task/app/view/home/widgets/card.dart';
 import 'package:first_task/app/view/order/order_design.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
 class Home extends StatelessWidget {
@@ -35,7 +36,6 @@ class Home extends StatelessWidget {
                   color: Color(0xff5A55C9),
                 ),
                 initialValue: selectedMenu,
-                // Callback that sets the selected popup menu item.
                 onSelected: (SampleItem item) {},
                 itemBuilder: (BuildContext context) =>
                     <PopupMenuEntry<SampleItem>>[
@@ -68,154 +68,180 @@ class Home extends StatelessWidget {
               ),
             ),
           ),
-          // IconButton(
-          //     onPressed: () {
-          //       Get.bottomSheet(
-          //         Align(
-          //           child: Container(
-          //             decoration: BoxDecoration(
-          //               color: Colors.white,
-          //               borderRadius: BorderRadius.circular(21),
-          //             ),
-          //             height: 213.h,
-          //             width: 343.w,
-          //             child: Container(
-          //               margin: EdgeInsets.symmetric(horizontal: 22.w),
-          //               child: Column(
-          //                 // crossAxisAlignment: CrossAxisAlignment.,
-          //                 mainAxisAlignment: MainAxisAlignment.spaceAround,
-          //                 children: [
-          //                   Text(
-          //                     " هل تريد زيادة عدد التصاميم المتاحة ؟! ",
-          //                     style: TextStyle(
-          //                       fontSize: 18.sp,
-          //                       fontWeight: FontWeight.bold,
-          //                       color: const Color(0xff010101),
-          //                     ),
-          //                   ),
-          //                   Text(
-          //                     "هل تريد زيادة عدد التصاميم المتاحة؟",
-          //                     style: TextStyle(
-          //                       fontSize: 14.sp,
-          //                       color: const Color(0xff010101),
-          //                     ),
-          //                   ),
-          //                   Row(
-          //                     mainAxisAlignment: MainAxisAlignment.spaceAround,
-          //                     children: [
-          //                       Container(
-          //                         width: 134.w,
-          //                         height: 35.h,
-          //                         decoration: BoxDecoration(
-          //                           borderRadius: BorderRadius.circular(10),
-          //                           gradient: const LinearGradient(
-          //                             begin: Alignment.topCenter,
-          //                             end: Alignment.bottomCenter,
-          //                             colors: [
-          //                               Color(0xff5A55C9),
-          //                               Color(0xffCDCCEE),
-          //                             ],
-          //                           ),
-          //                         ),
-          //                         child: InkWell(
-          //                           onTap: () {
-          //                             Get.back();
-          //                           },
-          //                           child: Center(
-          //                             child: Text(
-          //                               "نعم",
-          //                               style: TextStyle(
-          //                                 fontSize: 13.sp,
-          //                                 color: Colors.white,
-          //                               ),
-          //                             ),
-          //                           ),
-          //                         ),
-          //                       ),
-          //                       Container(
-          //                         width: 134.w,
-          //                         height: 35.h,
-          //                         decoration: BoxDecoration(
-          //                             border: Border.all(
-          //                               width: 1,
-          //                               color: const Color(0xffACACAC),
-          //                             ),
-          //                             borderRadius: BorderRadius.circular(10),
-          //                             color: Colors.white),
-          //                         child: InkWell(
-          //                           onTap: () {
-          //                             Get.back();
-          //                           },
-          //                           child: Center(
-          //                             child: Text(
-          //                               "لا",
-          //                               style: TextStyle(
-          //                                 fontSize: 13.sp,
-          //                                 color: const Color(0xff273236),
-          //                               ),
-          //                             ),
-          //                           ),
-          //                         ),
-          //                       ),
-          //                     ],
-          //                   )
-          //                 ],
-          //               ),
-          //             ),
-          //           ),
-          //         ),
-          //         backgroundColor: Colors.transparent,
-          //         elevation: 0,
-          //         shape: RoundedRectangleBorder(
-          //           borderRadius: BorderRadius.circular(15),
-          //         ),
-          //         isDismissible: false,
-          //         isScrollControlled: true,
-          //         enableDrag: false,
-          //       );
-          //     },
-          //     icon: Icon(Icons.add)),
           Container(
             padding: EdgeInsets.only(bottom: 27.h),
-            margin: EdgeInsets.symmetric(horizontal: 35.w),
-            child: Container(
-              padding: EdgeInsets.only(
-                  top: 21.h, bottom: 3.h, left: 12.w, right: 12.w),
-              width: 261,
-              height: 48,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(11),
-                border: Border.all(
-                  color: const Color(0xff5A55C9),
-                ),
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(),
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      for (int i = 0; i < 27; i++)
-                        CustomPaint(
-                          painter: CounterPainter(
-                              color: i > 12
-                                  ? const Color(0xffD168CD)
-                                  : const Color(0xff343435),
-                              height: i.isEven ? 1.5 : 1,
-                              width: 7),
-                          child: const SizedBox(
-                            height: 12,
-                            width: 9,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                InkWell(
+                  onTap: () {
+                    Get.bottomSheet(
+                      Align(
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(21),
+                          ),
+                          height: 213.h,
+                          width: 343.w,
+                          child: Container(
+                            margin: EdgeInsets.symmetric(horizontal: 22.w),
+                            child: Column(
+                              // crossAxisAlignment: CrossAxisAlignment.,
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                Text(
+                                  " هل تريد زيادة عدد التصاميم المتاحة ؟! ",
+                                  style: TextStyle(
+                                    fontSize: 18.sp,
+                                    fontWeight: FontWeight.bold,
+                                    color: const Color(0xff010101),
+                                  ),
+                                ),
+                                Text(
+                                  "هل تريد زيادة عدد التصاميم المتاحة؟",
+                                  style: TextStyle(
+                                    fontSize: 14.sp,
+                                    color: const Color(0xff010101),
+                                  ),
+                                ),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
+                                  children: [
+                                    Container(
+                                      width: 134.w,
+                                      height: 35.h,
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(10),
+                                        gradient: const LinearGradient(
+                                          begin: Alignment.topCenter,
+                                          end: Alignment.bottomCenter,
+                                          colors: [
+                                            Color(0xff5A55C9),
+                                            Color(0xffCDCCEE),
+                                          ],
+                                        ),
+                                      ),
+                                      child: InkWell(
+                                        onTap: () {
+                                          Get.back();
+                                        },
+                                        child: Center(
+                                          child: Text(
+                                            "نعم",
+                                            style: TextStyle(
+                                              fontSize: 13.sp,
+                                              color: Colors.white,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    Container(
+                                      width: 134.w,
+                                      height: 35.h,
+                                      decoration: BoxDecoration(
+                                          border: Border.all(
+                                            width: 1,
+                                            color: const Color(0xffACACAC),
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                          color: Colors.white),
+                                      child: InkWell(
+                                        onTap: () {
+                                          Get.back();
+                                        },
+                                        child: Center(
+                                          child: Text(
+                                            "لا",
+                                            style: TextStyle(
+                                              fontSize: 13.sp,
+                                              color: const Color(0xff273236),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                )
+                              ],
+                            ),
                           ),
                         ),
+                      ),
+                      backgroundColor: Colors.transparent,
+                      elevation: 0,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      isDismissible: false,
+                      isScrollControlled: true,
+                      enableDrag: false,
+                    );
+                  },
+                  child: SvgPicture.asset(
+                    "assets/images/svgexport-7.svg",
+                  ),
+                ),
+                Container(
+                  padding: EdgeInsets.only(bottom: 3.h, top: 2.h),
+                  width: 261,
+                  height: 48,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(11),
+                    border: Border.all(
+                      color: const Color(0xff5A55C9),
+                    ),
+                  ),
+                  child: Column(
+                    children: [
+                      Stack(
+                        children: [
+                          SvgPicture.asset(
+                            "assets/images/Polygon.svg",
+                            width: 16,
+                            height: 16,
+                          ),
+                          Positioned(
+                            right: 0,
+                            left: 0,
+                            child: SvgPicture.asset(
+                              "assets/images/Polygon2.svg",
+                              width: 11,
+                              height: 11,
+                            ),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          for (int i = 0; i < 27; i++)
+                            CustomPaint(
+                              painter: CounterPainter(
+                                  color: i > 12
+                                      ? const Color(0xffD168CD)
+                                      : const Color(0xff343435),
+                                  height: i.isEven ? 1.5 : 1,
+                                  width: 7),
+                              child: const SizedBox(
+                                height: 12,
+                                width: 9,
+                              ),
+                            ),
+                        ],
+                      ),
                     ],
                   ),
-                ],
-              ),
+                ),
+                SvgPicture.asset(
+                  "assets/images/svgexport-6.svg",
+                ),
+              ],
             ),
           ),
-
           Container(
             margin: EdgeInsets.symmetric(horizontal: 15.w),
             height: 47.h,
@@ -259,7 +285,7 @@ class Home extends StatelessWidget {
           ),
           GestureDetector(
             onTap: () {
-              Get.to(() => const Edit());
+              Get.to(() => Edit());
             },
             child: card(),
           ),
@@ -287,41 +313,5 @@ class CounterPainter extends CustomPainter {
   @override
   bool shouldRepaint(covariant CustomPainter oldDelegate) {
     return true;
-  }
-}
-
-class TrianglePainter extends CustomPainter {
-  final Color strokeColor;
-  final PaintingStyle paintingStyle;
-  final double strokeWidth;
-
-  TrianglePainter(
-      {this.strokeColor = Colors.black,
-      this.strokeWidth = 3,
-      this.paintingStyle = PaintingStyle.stroke});
-
-  @override
-  void paint(Canvas canvas, Size size) {
-    Paint paint = Paint()
-      ..color = strokeColor
-      ..strokeWidth = strokeWidth
-      ..style = paintingStyle;
-
-    canvas.drawPath(getTrianglePath(size.width, size.height), paint);
-  }
-
-  Path getTrianglePath(double x, double y) {
-    return Path()
-      ..moveTo(0, y)
-      ..lineTo(x / 2, 0)
-      ..lineTo(x, y)
-      ..lineTo(0, y);
-  }
-
-  @override
-  bool shouldRepaint(TrianglePainter oldDelegate) {
-    return oldDelegate.strokeColor != strokeColor ||
-        oldDelegate.paintingStyle != paintingStyle ||
-        oldDelegate.strokeWidth != strokeWidth;
   }
 }

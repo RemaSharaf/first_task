@@ -2,6 +2,7 @@ import 'package:first_task/app/view/home/controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:step_progress_indicator/step_progress_indicator.dart';
 
 class ChatPage extends StatelessWidget {
   ChatPage({super.key});
@@ -20,32 +21,67 @@ class ChatPage extends StatelessWidget {
                 return Container(
                     padding:
                         EdgeInsets.symmetric(horizontal: 14.w, vertical: 10.h),
-                    child: Align(
-                      alignment:
+                    child: Row(
+                      mainAxisAlignment:
                           (homeCtrl.messages[index].messageType == "receiver"
-                              ? Alignment.topLeft
-                              : Alignment.topRight),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          color: (homeCtrl.messages[index].messageType ==
-                                  "receiver"
-                              ? const Color(0xffF6F6FF)
-                              : const Color(0xffAFBBC6)),
+                              ? MainAxisAlignment.end
+                              : MainAxisAlignment.start),
+                      children: [
+                        index == 0
+                            ? const CircleAvatar()
+                            : (homeCtrl.messages[index - 1].messageType ==
+                                    "sender")
+                                ? Container(
+                                    padding: EdgeInsets.only(right: 35.w),
+                                  )
+                                : homeCtrl.messages[index].messageType ==
+                                        "sender"
+                                    ? const CircleAvatar()
+                                    : Container(),
+                        SizedBox(
+                          width: 3.w,
                         ),
-                        padding: EdgeInsets.symmetric(
-                            horizontal: 20.w, vertical: 15.h),
-                        child: Text(
-                          homeCtrl.messages[index].messageContent,
-                          style: TextStyle(
-                            fontSize: 13.sp,
+                        Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
                             color: (homeCtrl.messages[index].messageType ==
                                     "receiver"
-                                ? const Color(0xff7B8793)
-                                : Colors.white),
+                                ? const Color(0xffF6F6FF)
+                                : const Color(0xffAFBBC6)),
                           ),
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 20.w, vertical: 15.h),
+                          child: Row(children: [
+                            Text(
+                              homeCtrl.messages[index].messageContent,
+                              style: TextStyle(
+                                fontSize: 13.sp,
+                                color: (homeCtrl.messages[index].messageType ==
+                                        "receiver"
+                                    ? const Color(0xff7B8793)
+                                    : Colors.white),
+                              ),
+                            ),
+                          ]),
                         ),
-                      ),
+                        SizedBox(
+                          width: 3.w,
+                        ),
+                        index == 0
+                            ? (homeCtrl.messages[index].messageType ==
+                                    "receiver")
+                                ? const CircleAvatar()
+                                : Container()
+                            : (homeCtrl.messages[index - 1].messageType ==
+                                    "receiver")
+                                ? Container(
+                                    padding: EdgeInsets.only(right: 35.w),
+                                  )
+                                : homeCtrl.messages[index].messageType ==
+                                        "receiver"
+                                    ? const CircleAvatar()
+                                    : Container(),
+                      ],
                     ));
               },
             ),
@@ -97,7 +133,9 @@ class ChatPage extends StatelessWidget {
                     ],
                   ),
                   IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Get.back();
+                    },
                     icon: const Icon(
                       Icons.arrow_back_ios_new,
                       size: 20,
@@ -169,6 +207,98 @@ class ChatPage extends StatelessWidget {
                             child: Row(
                               children: [
                                 GestureDetector(
+                                  onTap: () {
+                                    Get.bottomSheet(
+                                      Align(
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            color: Colors.white.withOpacity(.7),
+                                            borderRadius:
+                                                BorderRadius.circular(21),
+                                          ),
+                                          height: double.infinity,
+                                          width: double.infinity,
+                                          child: Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceEvenly,
+                                            children: [
+                                              Column(
+                                                children: [
+                                                  Image.asset(
+                                                      "assets/images/Upload_Icon.png"),
+                                                  Text(
+                                                    "Upload file",
+                                                    style: TextStyle(
+                                                      fontSize: 36.sp,
+                                                      color: const Color(
+                                                          0xff9B51E0),
+                                                    ),
+                                                  ),
+                                                  RichText(
+                                                    text: TextSpan(
+                                                      style: TextStyle(
+                                                          fontSize: 14.sp,
+                                                          color: const Color(
+                                                              0xff4B5155)),
+                                                      children: const <
+                                                          TextSpan>[
+                                                        TextSpan(
+                                                            text:
+                                                                'Drag file here or '),
+                                                        TextSpan(
+                                                            text: 'browse',
+                                                            style: TextStyle(
+                                                                color: Color(
+                                                                    0xff9B51E0))),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                  Text(
+                                                    "Supported file types: JPG, PNG, DOCX, PDF, MP4",
+                                                    style: TextStyle(
+                                                      fontSize: 14.sp,
+                                                      color: const Color(
+                                                          0xff4B5155),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                              Column(
+                                                children: [
+                                                  Text(
+                                                    "79%",
+                                                    style: TextStyle(
+                                                      fontSize: 24.sp,
+                                                      color: const Color(
+                                                          0xff9B51E0),
+                                                    ),
+                                                  ),
+                                                  const StepProgressIndicator(
+                                                    totalSteps: 1,
+                                                    currentStep: 0,
+                                                    size: 5,
+                                                    padding: 50,
+                                                    selectedColor:
+                                                        Color(0xff9B51E0),
+                                                    unselectedColor:
+                                                        Color(0xff9B51E0),
+                                                  ),
+                                                ],
+                                              )
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                      backgroundColor: Colors.transparent,
+                                      elevation: 0,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(15),
+                                      ),
+                                      isDismissible: false,
+                                      isScrollControlled: true,
+                                      enableDrag: false,
+                                    );
+                                  },
                                   child: const Icon(
                                     Icons.attachment_rounded,
                                     color: Color(0xffAFBBC6),
