@@ -186,9 +186,8 @@ class Home extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  padding: EdgeInsets.only(bottom: 3.h, top: 2.h),
-                  width: 261,
-                  height: 48,
+                  width: 261.w,
+                  height: 48.h,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(11),
                     border: Border.all(
@@ -196,27 +195,34 @@ class Home extends StatelessWidget {
                     ),
                   ),
                   child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Stack(
-                        children: [
-                          SvgPicture.asset(
-                            "assets/images/Polygon.svg",
-                            width: 16,
-                            height: 16,
-                          ),
-                          Positioned(
-                            right: 0,
-                            left: 0,
-                            child: SvgPicture.asset(
-                              "assets/images/Polygon2.svg",
-                              width: 11,
-                              height: 11,
+                      Padding(
+                        padding: EdgeInsets.only(top: 5.h),
+                        child: Stack(
+                          children: [
+                            SvgPicture.asset(
+                              "assets/images/Polygon.svg",
+                              width: 16,
+                              height: 16,
                             ),
-                          ),
-                        ],
+                            Positioned(
+                              right: 0,
+                              left: 0,
+                              child: SvgPicture.asset(
+                                "assets/images/Polygon2.svg",
+                                width: 11,
+                                height: 11,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        height: 5.h,
                       ),
                       Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           for (int i = 0; i < 27; i++)
                             CustomPaint(
@@ -224,8 +230,9 @@ class Home extends StatelessWidget {
                                   color: i > 12
                                       ? const Color(0xffD168CD)
                                       : const Color(0xff343435),
-                                  height: i.isEven ? 1.5 : 1,
-                                  width: 7),
+                                  height: i.isEven ? 22 : 17,
+                                  width: 7,
+                                  end: i.isEven ? 1 : 4),
                               child: const SizedBox(
                                 height: 12,
                                 width: 9,
@@ -299,15 +306,19 @@ class CounterPainter extends CustomPainter {
   final double height;
   final Color color;
   final double width;
+  final double end;
   CounterPainter(
-      {required this.height, required this.color, required this.width});
+      {required this.height,
+      required this.color,
+      required this.width,
+      required this.end});
   @override
   void paint(Canvas canvas, Size size) {
     final paint = Paint()
       ..strokeWidth = 4
       ..color = color;
-    canvas.drawLine(Offset(size.width * 1 / width, size.height * height),
-        Offset(size.width * 1 / width, size.height * 1 / 12), paint);
+    canvas.drawLine(Offset(size.width * 1 / width, height),
+        Offset(size.width * 1 / width, end), paint);
   }
 
   @override
