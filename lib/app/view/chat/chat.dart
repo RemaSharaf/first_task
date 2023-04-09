@@ -42,35 +42,26 @@ class ChatPage extends StatelessWidget {
                           width: 3.w,
                         ),
                         Flexible(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.end,
-                            children: [
-                              Container(
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(20),
-                                  color:
-                                      (homeCtrl.messages[index].messageType ==
-                                              "receiver"
-                                          ? const Color(0xffF6F6FF)
-                                          : const Color(0xffAFBBC6)),
-                                ),
-                                padding: EdgeInsets.symmetric(
-                                    horizontal: 20.w, vertical: 15.h),
-                                child: Row(children: [
-                                  Text(
-                                    homeCtrl.messages[index].messageContent,
-                                    style: TextStyle(
-                                      fontSize: 13.sp,
-                                      color: (homeCtrl.messages[index]
-                                                  .messageType ==
-                                              "receiver"
-                                          ? const Color(0xff7B8793)
-                                          : Colors.white),
-                                    ),
-                                  ),
-                                ]),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                              color: (homeCtrl.messages[index].messageType ==
+                                      "receiver"
+                                  ? const Color(0xffF6F6FF)
+                                  : const Color(0xffAFBBC6)),
+                            ),
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 20.w, vertical: 15.h),
+                            child: Text(
+                              homeCtrl.messages[index].messageContent,
+                              style: TextStyle(
+                                fontSize: 13.sp,
+                                color: (homeCtrl.messages[index].messageType ==
+                                        "receiver"
+                                    ? const Color(0xff7B8793)
+                                    : Colors.white),
                               ),
-                            ],
+                            ),
                           ),
                         ),
                         SizedBox(

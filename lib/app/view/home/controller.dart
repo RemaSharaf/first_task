@@ -5,7 +5,6 @@ import 'package:first_task/app/data/services/storage/repository.dart';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
 
 enum SampleItem { ar, heb, eng }
 
@@ -34,7 +33,9 @@ class HomeController extends GetxController {
   ];
   List<ChatMessage> messages = [
     ChatMessage(
-        messageContent: "Is there any thing wrong?", messageType: "sender"),
+        messageContent:
+            "Is there any thing wrong?Is there any thing wrong? Is there any thing wrong? Is there any thing wrong?",
+        messageType: "sender"),
     ChatMessage(
         messageContent: "Hey Kriss, I am doing fine dude. wbu?",
         messageType: "sender"),
