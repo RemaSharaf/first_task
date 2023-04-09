@@ -46,7 +46,7 @@ class OrderDesign extends StatelessWidget {
                 ),
                 textField(
                   controller: TextEditingController(),
-                  hitText: "عنوان التصميم يساعدك بالبحث عن تصميمك مستقبلًا",
+                  hitText: "32".tr,
                   label: "13".tr,
                   color: const Color(0xffBDBDBD),
                 ),
@@ -55,7 +55,7 @@ class OrderDesign extends StatelessWidget {
                 ),
                 textField(
                     controller: TextEditingController(),
-                    hitText: "اكتب لنا كيف تريد التصميم وما هي الكتابة داخله",
+                    hitText: "33".tr,
                     label: "14".tr,
                     color: const Color(0xffBDBDBD),
                     numLins: 3),
@@ -64,7 +64,7 @@ class OrderDesign extends StatelessWidget {
                     vertical: 11.h,
                   ),
                   child: Text(
-                    "هل تود ان نقوم بتعديل الكتابة داخل التصميم حسبما نراه مناسبا؟",
+                    "34".tr,
                     style: TextStyle(
                       fontSize: 12.sp,
                       color: const Color(0xff010101),

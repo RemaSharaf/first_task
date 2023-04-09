@@ -29,7 +29,16 @@ class MyLocale implements Translations {
           "23": "لا ليس طارئ - تسليم اقل من 48 ساعة",
           "24": "ملاحظات اخرى",
           "25": "اضف ملاحظات اخرى بخصوص التصميم تود ارسالها للطاقم",
-          "26": "إرسال"
+          "26": "إرسال",
+          "27": "كتابة التعديل على التصميم",
+          "28": "اكتب التعديلات المطلوبة",
+          "29": "إلغاء",
+          "30": "هل تريد زيادة عدد التصاميم المتاحة؟",
+          "31": "تعديل",
+          "32": "عنوان التصميم يساعدك بالبحث عن تصميمك مستقبلًا",
+          "33": "اكتب لنا كيف تريد التصميم وما هي الكتابة داخله",
+          "34": "هل تود ان نقوم بتعديل الكتابة داخل التصميم حسبما نراه مناسبا؟",
+          "35": "اكتب رسالة هنا"
         },
         "en": {
           "1": "ًًWelcome Reema",
@@ -59,6 +68,18 @@ class MyLocale implements Translations {
           "25":
               "Add other notes about the design that you would like to send to the crew",
           "26": "Send",
+          "27": "Writing an amendment to the design",
+          "28": "Enter the required modifications.",
+          "29": "Cancel",
+          "30": "Want to increase the number of designs available?",
+          "31": "Edit",
+          "32":
+              "The title of the design helps you to search for your design in the future",
+          "33":
+              "Write to us how you want the design and what is the writing inside it",
+          "34":
+              "Would you like us to modify the writing within the design as we see fit?",
+          "35": "Type a message here",
         },
       };
 }

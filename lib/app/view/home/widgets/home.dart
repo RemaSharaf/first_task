@@ -91,7 +91,7 @@ class Home extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
                                 Text(
-                                  " هل تريد زيادة عدد التصاميم المتاحة ؟! ",
+                                  "30".tr,
                                   style: TextStyle(
                                     fontSize: 18.sp,
                                     fontWeight: FontWeight.bold,
@@ -99,7 +99,7 @@ class Home extends StatelessWidget {
                                   ),
                                 ),
                                 Text(
-                                  "هل تريد زيادة عدد التصاميم المتاحة؟",
+                                  "30".tr,
                                   style: TextStyle(
                                     fontSize: 14.sp,
                                     color: const Color(0xff010101),
@@ -129,7 +129,7 @@ class Home extends StatelessWidget {
                                         },
                                         child: Center(
                                           child: Text(
-                                            "نعم",
+                                            "15".tr,
                                             style: TextStyle(
                                               fontSize: 13.sp,
                                               color: Colors.white,
@@ -155,7 +155,7 @@ class Home extends StatelessWidget {
                                         },
                                         child: Center(
                                           child: Text(
-                                            "لا",
+                                            "16".tr,
                                             style: TextStyle(
                                               fontSize: 13.sp,
                                               color: const Color(0xff273236),

@@ -105,9 +105,9 @@ Widget card() {
               controller.code == "en" ? TextDirection.ltr : TextDirection.rtl,
           top: 20.h,
           end: 13.w,
-          child: const Text(
-            "تعديل",
-            style: TextStyle(
+          child: Text(
+            "31".tr,
+            style: const TextStyle(
               color: Colors.white,
               fontSize: 14,
               fontWeight: FontWeight.bold,

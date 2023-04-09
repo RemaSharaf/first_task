@@ -82,7 +82,7 @@ class Edit extends StatelessWidget {
                                       MainAxisAlignment.spaceAround,
                                   children: [
                                     Text(
-                                      "كتابة التعديل على التصميم",
+                                      "27".tr,
                                       style: TextStyle(
                                         fontSize: 14.sp,
                                         color: const Color(0xff010101),
@@ -95,12 +95,11 @@ class Edit extends StatelessWidget {
                                       child: TextFormField(
                                         maxLines: 3,
                                         decoration: InputDecoration(
-                                          contentPadding: EdgeInsets.only(
-                                            top: 8.h,
-                                            bottom: 8.h,
-                                            right: 15.7.w,
+                                          contentPadding: EdgeInsets.symmetric(
+                                            vertical: 8.h,
+                                            horizontal: 15.7.w,
                                           ),
-                                          hintText: "اكتب التعديلات المطلوبة",
+                                          hintText: "28".tr,
                                           hintStyle: TextStyle(
                                             fontSize: 12.sp,
                                             color: const Color(0xffBDBDBD),
@@ -151,7 +150,7 @@ class Edit extends StatelessWidget {
                                             },
                                             child: Center(
                                               child: Text(
-                                                "إرسال",
+                                                "26".tr,
                                                 style: TextStyle(
                                                   fontSize: 13.sp,
                                                   color: Colors.white,
@@ -177,7 +176,7 @@ class Edit extends StatelessWidget {
                                             },
                                             child: Center(
                                               child: Text(
-                                                "إلغاء",
+                                                "29".tr,
                                                 style: TextStyle(
                                                   fontSize: 13.sp,
                                                   color:

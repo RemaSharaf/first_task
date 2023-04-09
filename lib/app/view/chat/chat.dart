@@ -41,28 +41,37 @@ class ChatPage extends StatelessWidget {
                         SizedBox(
                           width: 3.w,
                         ),
-                        Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
-                            color: (homeCtrl.messages[index].messageType ==
-                                    "receiver"
-                                ? const Color(0xffF6F6FF)
-                                : const Color(0xffAFBBC6)),
-                          ),
-                          padding: EdgeInsets.symmetric(
-                              horizontal: 20.w, vertical: 15.h),
-                          child: Row(children: [
-                            Text(
-                              homeCtrl.messages[index].messageContent,
-                              style: TextStyle(
-                                fontSize: 13.sp,
-                                color: (homeCtrl.messages[index].messageType ==
-                                        "receiver"
-                                    ? const Color(0xff7B8793)
-                                    : Colors.white),
+                        Flexible(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: [
+                              Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(20),
+                                  color:
+                                      (homeCtrl.messages[index].messageType ==
+                                              "receiver"
+                                          ? const Color(0xffF6F6FF)
+                                          : const Color(0xffAFBBC6)),
+                                ),
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: 20.w, vertical: 15.h),
+                                child: Row(children: [
+                                  Text(
+                                    homeCtrl.messages[index].messageContent,
+                                    style: TextStyle(
+                                      fontSize: 13.sp,
+                                      color: (homeCtrl.messages[index]
+                                                  .messageType ==
+                                              "receiver"
+                                          ? const Color(0xff7B8793)
+                                          : Colors.white),
+                                    ),
+                                  ),
+                                ]),
                               ),
-                            ),
-                          ]),
+                            ],
+                          ),
                         ),
                         SizedBox(
                           width: 3.w,
@@ -136,10 +145,12 @@ class ChatPage extends StatelessWidget {
                     onPressed: () {
                       Get.back();
                     },
-                    icon: const Icon(
-                      Icons.arrow_back_ios_new,
+                    icon: Icon(
+                      homeCtrl.code.value == "en"
+                          ? Icons.arrow_forward_ios
+                          : Icons.arrow_back_ios_new,
                       size: 20,
-                      color: Color(0xff5A55C9),
+                      color: const Color(0xff5A55C9),
                     ),
                   )
                 ],
@@ -167,7 +178,7 @@ class ChatPage extends StatelessWidget {
                             decoration: InputDecoration(
                               contentPadding: EdgeInsets.symmetric(
                                   horizontal: 35.w, vertical: 20.h),
-                              hintText: "اكتب رسالة هنا",
+                              hintText: "35".tr,
                               hintStyle: TextStyle(
                                 fontSize: 12.sp,
                                 color: const Color(0xff7B8793),
@@ -191,7 +202,9 @@ class ChatPage extends StatelessWidget {
                             ),
                           ),
                           Align(
-                            alignment: Alignment.centerRight,
+                            alignment: homeCtrl.code == "en"
+                                ? Alignment.centerLeft
+                                : Alignment.centerRight,
                             child: IconButton(
                               onPressed: () {},
                               icon: const Icon(
@@ -200,8 +213,11 @@ class ChatPage extends StatelessWidget {
                               ),
                             ),
                           ),
-                          Positioned(
-                            left: 65,
+                          Positioned.directional(
+                            textDirection: homeCtrl.code == "en"
+                                ? TextDirection.ltr
+                                : TextDirection.rtl,
+                            end: 65,
                             top: 0,
                             bottom: 0,
                             child: Row(
@@ -314,7 +330,9 @@ class ChatPage extends StatelessWidget {
                             ),
                           ),
                           Align(
-                            alignment: Alignment.centerLeft,
+                            alignment: homeCtrl.code == "en"
+                                ? Alignment.centerRight
+                                : Alignment.centerLeft,
                             child: Padding(
                               padding: EdgeInsets.symmetric(horizontal: 5.w),
                               child: FloatingActionButton(
