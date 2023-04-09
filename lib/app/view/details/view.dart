@@ -8,7 +8,7 @@ import 'package:get/get.dart';
 
 class Edit extends StatelessWidget {
   Edit({super.key});
-  // final homeCtrl = Get.find<HomeController>();
+  final homeCtrl = Get.find<HomeController>();
   @override
   Widget build(BuildContext context) {
     return Main(
@@ -21,7 +21,7 @@ class Edit extends StatelessWidget {
             children: [
               Container(),
               Text(
-                "اسم التصميم",
+                "5".tr,
                 style: TextStyle(
                   fontSize: 16.sp,
                   color: const Color(0xff010101),
@@ -31,10 +31,12 @@ class Edit extends StatelessWidget {
                 onPressed: () {
                   Get.back();
                 },
-                icon: const Icon(
+                icon: Icon(
                   Icons.arrow_back,
-                  textDirection: TextDirection.ltr,
-                  color: Color(0xff5A55C9),
+                  textDirection: homeCtrl.code.value == "en"
+                      ? TextDirection.rtl
+                      : TextDirection.ltr,
+                  color: const Color(0xff5A55C9),
                 ),
               )
             ],
@@ -202,12 +204,13 @@ class Edit extends StatelessWidget {
                           enableDrag: false,
                         );
                       },
-                      child: Text(
-                        "تعديل التصميم",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 16.sp,
-                          color: Colors.white,
+                      child: Center(
+                        child: Text(
+                          "6".tr,
+                          style: TextStyle(
+                            fontSize: 16.sp,
+                            color: Colors.white,
+                          ),
                         ),
                       ),
                     ),
@@ -220,12 +223,13 @@ class Edit extends StatelessWidget {
                       color: const Color(0xff54AE4E),
                     ),
                     child: InkWell(
-                      child: Text(
-                        "قبول التصميم",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 16.sp,
-                          color: Colors.white,
+                      child: Center(
+                        child: Text(
+                          "7".tr,
+                          style: TextStyle(
+                            fontSize: 16.sp,
+                            color: Colors.white,
+                          ),
                         ),
                       ),
                     ),
@@ -250,7 +254,7 @@ class Edit extends StatelessWidget {
                             size: 20,
                           ),
                           Text(
-                            "محادثة",
+                            "8".tr,
                             style: TextStyle(
                               fontSize: 16.sp,
                               color: Colors.white,
@@ -270,7 +274,7 @@ class Edit extends StatelessWidget {
               bottom: 6.h,
             ),
             child: Text(
-              "تفاصيل التصميم",
+              "9".tr,
               style: TextStyle(
                 fontSize: 18.sp,
                 fontWeight: FontWeight.bold,
@@ -280,17 +284,17 @@ class Edit extends StatelessWidget {
           ),
           textField(
             controller: TextEditingController(),
-            label: "نوع التصميم",
+            label: "10".tr,
             hitText: "منشور",
           ),
           textField(
             controller: TextEditingController(),
-            label: "اختر ابعاد التصاميم المطلوبة",
+            label: "11".tr,
             hitText: "سوشيل ميديا",
           ),
           textField(
             controller: TextEditingController(),
-            label: "نوع التصميم",
+            label: "10".tr,
             hitText:
                 "هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق.",
             numLins: 2,

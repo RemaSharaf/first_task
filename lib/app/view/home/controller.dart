@@ -5,6 +5,7 @@ import 'package:first_task/app/data/services/storage/repository.dart';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 
 enum SampleItem { ar, heb, eng }
 
@@ -61,6 +62,7 @@ class HomeController extends GetxController {
   void changeLan(String code) {
     Locale locale = Locale(code);
     ordersRepository.writeLang(code);
+    this.code.value = code;
     Get.updateLocale(locale);
   }
 

@@ -1,3 +1,4 @@
+import 'package:first_task/app/view/home/controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -28,6 +29,7 @@ Widget details(IconData icon, String data) {
 }
 
 Widget card() {
+  final controller = Get.find<HomeController>();
   return Container(
     decoration: BoxDecoration(
       borderRadius: BorderRadius.circular(7),
@@ -83,10 +85,14 @@ Widget card() {
             ],
           ),
         ),
-        Positioned.fill(
-          top: -170.h,
-          bottom: 17.h,
-          left: -440.w,
+        Positioned.directional(
+          textDirection:
+              controller.code == "en" ? TextDirection.ltr : TextDirection.rtl,
+          top: -50.h,
+          end: -70,
+          // start: 0,
+          height: 130.h,
+          width: 130.w,
           child: Container(
             decoration: const BoxDecoration(
               shape: BoxShape.circle,
@@ -94,9 +100,11 @@ Widget card() {
             ),
           ),
         ),
-        Positioned(
+        Positioned.directional(
+          textDirection:
+              controller.code == "en" ? TextDirection.ltr : TextDirection.rtl,
           top: 20.h,
-          left: 13.w,
+          end: 13.w,
           child: const Text(
             "تعديل",
             style: TextStyle(

@@ -39,7 +39,7 @@ class Main extends StatelessWidget {
                         )
                       ],
                     ),
-                    Text("data")
+                    const Text("data")
                   ],
                 )),
             bottomNavigation(controller, index)

@@ -24,7 +24,7 @@ class OrderDesign extends StatelessWidget {
                   children: [
                     Container(),
                     Text(
-                      "تفاصيل طلب التصميم",
+                      "12".tr,
                       style: TextStyle(
                         fontSize: 16.sp,
                         color: const Color(0xff5A55C9),
@@ -34,10 +34,12 @@ class OrderDesign extends StatelessWidget {
                       onPressed: () {
                         Get.back();
                       },
-                      icon: const Icon(
+                      icon: Icon(
                         Icons.arrow_back,
-                        textDirection: TextDirection.ltr,
-                        color: Color(0xff5A55C9),
+                        textDirection: homeCtl.code.value == "en"
+                            ? TextDirection.rtl
+                            : TextDirection.ltr,
+                        color: const Color(0xff5A55C9),
                       ),
                     )
                   ],
@@ -45,7 +47,7 @@ class OrderDesign extends StatelessWidget {
                 textField(
                   controller: TextEditingController(),
                   hitText: "عنوان التصميم يساعدك بالبحث عن تصميمك مستقبلًا",
-                  label: "عنوان التصميم",
+                  label: "13".tr,
                   color: const Color(0xffBDBDBD),
                 ),
                 SizedBox(
@@ -54,7 +56,7 @@ class OrderDesign extends StatelessWidget {
                 textField(
                     controller: TextEditingController(),
                     hitText: "اكتب لنا كيف تريد التصميم وما هي الكتابة داخله",
-                    label: "الكتابة داخل التصميم",
+                    label: "14".tr,
                     color: const Color(0xffBDBDBD),
                     numLins: 3),
                 Container(
@@ -95,7 +97,7 @@ class OrderDesign extends StatelessWidget {
                         child: Center(
                           child: InkWell(
                             child: Text(
-                              "نعم",
+                              "15".tr,
                               style: TextStyle(
                                 fontSize: 16.sp,
                                 color: Colors.black,
@@ -124,7 +126,7 @@ class OrderDesign extends StatelessWidget {
                         child: Center(
                           child: InkWell(
                             child: Text(
-                              "لا",
+                              "16".tr,
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 fontSize: 16.sp,
@@ -139,7 +141,7 @@ class OrderDesign extends StatelessWidget {
                 ),
                 dropDown(
                   list: homeCtl.designType,
-                  title: "نوع التصميم",
+                  title: "10".tr,
                 ),
                 Container(
                   margin: EdgeInsets.only(
@@ -148,11 +150,11 @@ class OrderDesign extends StatelessWidget {
                   ),
                   child: dropDown(
                     list: homeCtl.designDimensions,
-                    title: "اختر ابعاد التصاميم المطلوبة",
+                    title: "11".tr,
                   ),
                 ),
                 Text(
-                  "أضف  شعار دائم",
+                  "18".tr,
                   style: TextStyle(
                     fontSize: 14.sp,
                     color: const Color(0xff010101),
@@ -183,14 +185,14 @@ class OrderDesign extends StatelessWidget {
                         size: 26.sp,
                       ),
                       Text(
-                        "اسحب الملفات هنا او اضعط للتحميل",
+                        "19".tr,
                         style: GoogleFonts.poppins(
                           color: const Color(0xff9E9E9E),
                           fontSize: 10.sp,
                         ),
                       ),
                       Text(
-                        "اكثر من 1 Mg",
+                        "20".tr,
                         style: GoogleFonts.poppins(
                           color: const Color(0xff9E9E9E),
                           fontSize: 10.sp,
@@ -200,7 +202,7 @@ class OrderDesign extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  "هل التصميم طارئ؟!",
+                  "21".tr,
                   style: TextStyle(
                     fontSize: 14.sp,
                     color: const Color(0xff010101),
@@ -221,7 +223,7 @@ class OrderDesign extends StatelessWidget {
                         child: Center(
                           child: InkWell(
                             child: Text(
-                              "نعم ، تسليم خلال 24 ساعة",
+                              "22".tr,
                               style: TextStyle(
                                 fontSize: 10.sp,
                                 color: Colors.white,
@@ -242,13 +244,18 @@ class OrderDesign extends StatelessWidget {
                           ),
                         ),
                         child: Center(
-                          child: InkWell(
-                            child: Text(
-                              "لا ليس طارئ - تسليم اقل من 48 ساعة",
-                              style: TextStyle(
-                                fontSize: 10.sp,
-                                color: const Color(0xff6F6F6F),
-                                fontWeight: FontWeight.bold,
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 5.w),
+                            child: InkWell(
+                              child: Text(
+                                "23".tr,
+                                overflow: TextOverflow.clip,
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontSize: 10.sp,
+                                  color: const Color(0xff6F6F6F),
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                             ),
                           ),
@@ -261,9 +268,8 @@ class OrderDesign extends StatelessWidget {
                   margin: EdgeInsets.only(top: 8.h, bottom: 20.h),
                   child: textField(
                       controller: TextEditingController(),
-                      hitText:
-                          "اضف ملاحظات اخرى بخصوص التصميم تود ارسالها للطاقم",
-                      label: "ملاحظات اخرى",
+                      hitText: "25".tr,
+                      label: "24".tr,
                       color: const Color(0xffBDBDBD),
                       numLins: 3),
                 ),
@@ -286,7 +292,7 @@ class OrderDesign extends StatelessWidget {
                     onTap: () {},
                     child: Center(
                       child: Text(
-                        "إرسال",
+                        "26".tr,
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 18.sp,

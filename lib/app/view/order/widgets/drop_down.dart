@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 Widget dropDown({list, required String title}) {
   return Column(
@@ -36,7 +37,7 @@ Widget dropDown({list, required String title}) {
           margin: EdgeInsets.symmetric(horizontal: 16.w),
           child: DropdownButtonFormField<String>(
             hint: Text(
-              "اختر نوع التصميم",
+              "17".tr,
               style: TextStyle(
                 fontSize: 12.sp,
                 color: const Color(0xffBDBDBD),
